@@ -19,17 +19,16 @@ while (continuar != "no") {
 }
 
 //Aquí imprime el stock dentro del HTML
-const contenedorProd = document.getElementById("productId")
+const contenedorProd = document.getElementById("productId");
 
 function agregarCards(products){
     products.forEach(product => {
         const card = document.createElement("div");
         card.classList.add("itemClass");
         card.innerHTML =`
-        <p>${element.id}</p>
-        <h4>${element.nombre}</h4>
-        <p>${element.precioFinal}</p>
-        <p>Precio: $ ${element.stock}</p>
+        <p>ID de producto: ${product.id}</p>
+        <h4>Nombre del producto: ${product.nombre}</h4>
+        <p>Precio $: ${product.precio}</p>
         `
     contenedorProd.appendChild(card)
     });
@@ -46,8 +45,7 @@ function agregarCards(products){
 //Aquí lista todos los objetos cargados
 const verStock = prompt("Desea ver los items cargados?")
 if (verStock === "si") {
-    agregarCards(productos)
-    // alert(JSON.stringify(productos, null, 2));
+    alert(JSON.stringify(productos, null, 2));
 }; 
 //Comienza la carga de items para la facturación
 const carrito = [];
@@ -88,6 +86,9 @@ while (carritoContinuar != "no") {
 carritoMensaje = `El total de la compra es de AR$ ${carritoTotal}`
 alert("Items del carrito de compras");
 alert(JSON.stringify(carrito, null, 2));
+
+agregarCards(carrito);
+
 alert(carritoMensaje);
 alert("Items actualizados del stock")
 alert(JSON.stringify(productos, null, 2));
