@@ -17,12 +17,38 @@ while (continuar != "no") {
     productos.push(producto);
     continuar = prompt("Desea continuar?");
 }
+
+//Aquí imprime el stock dentro del HTML
+const contenedorProd = document.getElementById("productId")
+
+function agregarCards(products){
+    products.forEach(product => {
+        const card = document.createElement("div");
+        card.classList.add("itemClass");
+        card.innerHTML =`
+        <p>${element.id}</p>
+        <h4>${element.nombre}</h4>
+        <p>${element.precioFinal}</p>
+        <p>Precio: $ ${element.stock}</p>
+        `
+    contenedorProd.appendChild(card)
+    });
+}
+
+
+
+
+
+
+
+
 //Aquí termina la carga de datos en el Array
 //Aquí lista todos los objetos cargados
 const verStock = prompt("Desea ver los items cargados?")
 if (verStock === "si") {
-    alert(JSON.stringify(productos, null, 2));
-};
+    agregarCards(productos)
+    // alert(JSON.stringify(productos, null, 2));
+}; 
 //Comienza la carga de items para la facturación
 const carrito = [];
 carritoTotal = 0;
